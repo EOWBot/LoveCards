@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>安装引导 - LoveCards</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <link rel="shortcut icon" href="{__A-assets__}/img/favicon.ico">
+    <link rel="stylesheet" href="{__A-assets__}/lib/mdui-v1.0.2/css/mdui.min.css" />
+    <link rel="stylesheet" href="{__A-assets__}/css/base.css" />
+
+    <style>
+        .mask-xs {
+            max-height: 180px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mask-md {
+            max-height: 640px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mdui-card-primary-subtitle a {
+            color: #ff4081;
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+            text-decoration: none;
+            vertical-align: top;
+            outline: 0;
+        }
+
+        .mdui-tab a {
+            min-width: unset;
+            max-width: unset;
+        }
+
+        .tab-body {
+            min-height: 420px;
+        }
+
+        /* 等效mdui-hidden-md-up */
+        @media (min-width: 0px) and (max-width: 1023px) {
+            .tab-body {
+                min-height: unset;
+            }
+        }
+    </style>
+</head>
+
+<body class="mdui-theme-primary-indigo mdui-theme-layout-light mdui-theme-accent-pink">
+    <div id="app" class="mdui-container-fluid" style="max-width: 1440px;">
+
+        <div class="mdui-card mdui-shadow-16" style="margin: 5%; margin-top: 10%;">
+            <div class="mdui-row">
+                <!-- 横屏头图 -->
+                <div class="mdui-col-xs-12 mdui-col-md-5 mask-md mdui-hidden-sm-down">
+                    <img style="height: 680px;" src="{__A-assets__}/img/install.gif">
+                    <div class="mdui-card-media-covered mdui-p-x-2">
+                        <div class="mdui-card-primary">
+                            <div class="mdui-card-primary-title">LoveCards</div>
+                            <div class="mdui-card-primary-subtitle">
+                                Crafted with <a :href="res.VersionInfo.Url?res.VersionInfo.Url:'#'"
+                                    target="_blank">{{res.VersionInfo.name?res.VersionInfo.name:'LoveCards'}}</a>
+                                ©
+                                2024
+                                time Made
+                                by <a href="https://github.com/zhiguai" target="_blank">吃纸怪</a>.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 竖屏头图 -->
+                <div class="mdui-col-xs-12 mdui-col-md-6 mask-xs mdui-hidden-md-up">
+                    <img src="{__A-assets__}/img/install.gif" style="width: 100%;">
+                    <div class="mdui-card-media-covered mdui-p-x-2">
+                        <div class="mdui-card-primary">
+                            <div class="mdui-card-primary-title">LoveCards</div>
+                            <div class="mdui-card-primary-subtitle">
+                                Crafted with <a :href="res.VersionInfo.Url?res.VersionInfo.Url:'#'"
+                                    target="_blank">{{res.VersionInfo.name?res.VersionInfo.name:'LoveCards'}}</a><br>
+                                ©
+                                2024 time
+                                Made by <a href="https://github.com/zhiguai" target="_blank">吃纸怪</a>.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mdui-col-xs-12 mdui-col-md-7">
+                    <div class="mdui-p-x-2 mdui-p-t-4">
+                        <div class="mdui-tab mdui-tab-full-width mdui-hidden-sm-down" id="tab">
+                            <a href="#tab1-content" class="mdui-ripple"
+                                :disabled="tab.activeIndex==0? null:'disabled'">🤗HI~LoveCards</a>
+                            <a href="#tab2-content" class="mdui-ripple"
+                                :disabled="tab.activeIndex==1? null:'disabled'">👨‍⚕️环境检测</a>
+                            <a href="#tab3-content" class="mdui-ripple"
+                                :disabled="tab.activeIndex==2? null:'disabled'">💻配置数据库</a>
+                            <a href="#tab4-content" class="mdui-ripple"
+                                :disabled="tab.activeIndex==3? null:'disabled'">🔑创建密钥</a>
+                            <a href="#tab5-content" class="mdui-ripple"
+                                :disabled="tab.activeIndex==4? null:'disabled'">🎉完成安装</a>
+                        </div>
+                        <div class="mdui-tab mdui-tab-full-width mdui-hidden-md-up" mdui-tab>
+                            <a href="#" class="mdui-tab-active mdui-ripple">{{tab.nowTabText}}</a>
+                        </div>
+                    </div>
+
+                    <div class="tab-body mdui-p-x-3 mdui-p-t-5">
+                        <!-- tab -->
+                        <div class="mdui-typo" id="tab1-content">
+                            <h1
+                                style="margin-top: 0;color: #1296DB;font-weight: bold;font-family: 'SimSun', sans-serif;">
+                                ✨倾心倾意
+                            </h1>
+                            <div
+                                style="margin-top: -25px;color: #1296DB;margin-left: 43px;font-size: x-small;font-weight: bold;">
+                                LoveCards</div>
+                            <ul class="mdui-m-t-1">
+                                <li>🗃️当前版本：<kbd>{{res.VersionInfo.Ver?res.VersionInfo.VerS+'['+res.VersionInfo.Ver+']':'加载中..'}}</kbd>
+                                </li>
+                                <li>🆕最新版本：<a
+                                        href="https://github.com/zhiguai/LoveCards/releases"><kbd>{{res.VersionInfo.GithubInfo?res.VersionInfo.GithubInfo.name:'加载中..'}}</kbd></a>
+                                    <pre
+                                        style="max-height:150px">{{res.VersionInfo.GithubVerlogMd?res.VersionInfo.GithubVerlogMd:'加载中..'}}</pre>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>💻项目主页：<a href="https://lovecards.cn/" target="_blank">lovecards.cn</a></li>
+                                <li> 👨‍💻Github主页：<a href="https://github.com/zhiguai/LoveCards"
+                                        target="_blank">github.com/zhiguai/LoveCards</a></li>
+                                <li>👩‍👧‍👦交流社区：<a href="https://forum.lovecards.cn/"
+                                        target="_blank">forum.lovecards.cn</a></li>
+                                <li> 👯‍♂QQ交流群：<a
+                                        href="{{res.VersionInfo.QGroupUrl?res.VersionInfo.QGroupUrl:'https://lovecards.cn/'}}"
+                                        target="_blank">801235342</a></li>
+                            </ul>
+                        </div>
+                        <!-- tab -->
+                        <div class="mdui-table-fluid" id="tab2-content">
+                            <table class="mdui-table">
+                                <thead>
+                                    <tr>
+                                        <th>运行环境</th>
+                                        <th>本地版本</th>
+                                        <th>要求版本</th>
+                                        <th class="mdui-table-col-numeric">可用状态</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>PHP</td>
+                                        <td>{{res.Environment.php?res.Environment.php.value:'加载中..'}}
+                                        </td>
+                                        <td>[{{res.VersionInfo.InstallEnvironment?res.VersionInfo.InstallEnvironment.php['[']+','+res.VersionInfo.InstallEnvironment.php[')']:'-,-'}})
+                                        </td>
+                                        <td>{{res.Environment.php?.status?'✔️可用':'❌不可用'}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>MySQL</td>
+                                        <td>自查</td>
+                                        <td>[{{res.VersionInfo.InstallEnvironment?res.VersionInfo.InstallEnvironment.mysql['[']+','+res.VersionInfo.InstallEnvironment.mysql[')']:'-,-'}})
+                                        </td>
+                                        <td>🔍自查</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table class="mdui-table">
+                                <thead>
+                                    <tr>
+                                        <th>扩展</th>
+                                        <!-- <th>开启状态</th> -->
+                                        <th class="mdui-table-col-numeric">可用状态</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>PDO</td>
+                                        <!-- <td></td> -->
+                                        <td>{{res.Environment.pdo_mysql?.status?'✔️可用':'❌不可用'}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>openssl</td>
+                                        <!-- <td></td> -->
+                                        <td>{{res.Environment.openssl?.status?'✔️可用':'❌不可用'}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- tab -->
+                        <div id="tab3-content">
+                            <div class="mdui-typo">
+                                <div class="mdui-typo-caption-opacity">注意：暂仅支持MySQL系列数据库</div>
+                            </div>
+                            <div class="mdui-textfield">
+                                <label class="mdui-textfield-label">服务器</label>
+                                <textarea id="formDataHostname" class="mdui-textfield-input"
+                                    v-model="req.DbConfig.hostname"></textarea>
+                            </div>
+                            <div class="mdui-textfield">
+                                <label class="mdui-textfield-label">端口</label>
+                                <textarea id="formDataHostport" class="mdui-textfield-input"
+                                    v-model="req.DbConfig.hostport">3306</textarea>
+                            </div>
+                            <div class="mdui-textfield">
+                                <label class="mdui-textfield-label">数据库</label>
+                                <textarea id="formDataUsername" class="mdui-textfield-input"
+                                    v-model="req.DbConfig.database"></textarea>
+                            </div>
+                            <div class="mdui-textfield">
+                                <label class="mdui-textfield-label">用户名</label>
+                                <textarea id="formDataUsername" class="mdui-textfield-input"
+                                    v-model="req.DbConfig.username"></textarea>
+                            </div>
+                            <div class="mdui-textfield">
+                                <label class="mdui-textfield-label">密码</label>
+                                <textarea id="formDataPassword" class="mdui-textfield-input"
+                                    v-model="req.DbConfig.password"></textarea>
+                            </div>
+                        </div>
+                        <!-- tab -->
+                        <div id="tab4-content">
+                            <div class="mdui-typo">
+                                <div class="mdui-typo-caption-opacity">注意：留空将会尝试自动生成</div>
+                            </div>
+                            <div class="mdui-textfield">
+                                <label class="mdui-textfield-label">RSA公钥</label>
+                                <textarea id="formDataHostname" rows="6" class="mdui-textfield-input"
+                                    v-model="req.CreateRsa.public"></textarea>
+                            </div>
+                            <div class="mdui-textfield">
+                                <label class="mdui-textfield-label">RSA私钥</label>
+                                <textarea id="formDataUsername" rows="6" class="mdui-textfield-input"
+                                    v-model="req.CreateRsa.private"></textarea>
+                            </div>
+                        </div>
+                        <!-- tab -->
+                        <div class="mdui-typo" id="tab5-content">
+                            <h1
+                                style="margin-top: 0;color: #1296DB;font-weight: bold;font-family: 'SimSun', sans-serif;">
+                                🎉大功告成
+                            </h1>
+                            <div
+                                style="margin-top: -25px;color: #1296DB;margin-left: 43px;font-size: x-small;font-weight: bold;">
+                                LoveCards伴您而行</div>
+                            <ul class="mdui-m-t-1">
+                                <li> 后台地址：<a href="#">/admin</a></li>
+                                <li> 超管账户：admin</li>
+                                <li> 超管密码：admin</li>
+                            </ul>
+                            <ul>
+                                <li> 💡问题反馈：<a href="https://forum.lovecards.cn/t/AskAndHelp"
+                                        target="_blank">由LoveCards社区提供</a></li>
+                                <li> 🏞️更多主题：<a href="https://forum.lovecards.cn/t/CreateAndShare"
+                                        target="_blank">由LoveCards社区提供</a></li>
+                                <li> 👯‍♂QQ交流群：<a
+                                        href="{{res.VersionInfo.QGroupUrl?res.VersionInfo.QGroupUrl:'https://lovecards.cn/'}}"
+                                        target="_blank">801235342</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mdui-p-x-3 mdui-p-t-5 mdui-p-b-3">
+                        <div v-if="!tab.endBtnShow">
+                            <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent"
+                                :style="{'visibility': tab.activeIndex ? 'unset' : 'hidden'}"
+                                @click="tabPrev()">上一步</button>
+                            <button
+                                class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-float-right"
+                                @click="tabNext()">{{tab.btnText}}</button>
+                        </div>
+                        <div v-if="tab.endBtnShow">
+                            <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-btn-block"
+                                @click="tabNext()">伴您而行(结束安装)</button>
+                        </div>
+                        <!-- 对话框 -->
+                        <div class="mdui-dialog" id="dialog">
+                            <div class="mdui-dialog-title">重置或跳过?</div>
+                            <div class="mdui-dialog-content">注意：重置将会清空数据库</div>
+                            <div class="mdui-dialog-actions">
+                                <button class="mdui-btn mdui-ripple" mdui-dialog-cancel>🟥取消</button>
+                                <button class="mdui-btn mdui-ripple" @click="checkNext(1)">🔃重置</button>
+                                <button class="mdui-btn mdui-ripple" @click="checkNext(0)">🟩跳过</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 第三方依赖 -->
+    <script src="{__A-assets__}/lib/vue-3.3.4/vue.global.min.js"></script>
+    <script src="{__A-assets__}/lib/axios-1.5.0/axios.min.js"></script>
+    <!-- <script src="{__A-assets__}/lib/vue-router@4/vue-router.global.js"></script> -->
+
+    <script src="{__A-assets__}/lib/jquery-3.6.0/jquery.min.js"></script>
+    <script src="{__A-assets__}/lib/mdui-v1.0.2/js/mdui.min.js"></script>
+    <script src="{__A-assets__}/lib/jquery_lazyload-1.9.7/jquery.lazyload.js"></script>
+    <script src="{__A-assets__}/lib/jquery-cookie-1.4.1/jquery.cookie.min.js"></script>
+
+    <script src="{__A-assets__}/js/Base.js"></script>
+    <script src="{__A-assets__}/js/commonOld.js"></script>
+    <!-- <script>
+        const tab = new mdui.Tab('#tab');
+    </script> -->
+    <script type="module" src="/view/system/install.js"></script>
+</body>
